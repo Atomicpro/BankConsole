@@ -19,4 +19,5 @@ public class Account extends Person{
 
     public double getBalance() {return balance;}
     public void addBalance(double deposit) {this.balance =+ deposit;}
+    public void sendBalance(double deposit){this.balance =- deposit;}
 }
