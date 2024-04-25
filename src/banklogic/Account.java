@@ -21,7 +21,7 @@ public class Account extends Person{
 
     public void setUserPassword(String userPassword) {this.userPassword = userPassword;}
 
-    public void addBalance(double deposit) {this.balance =+ deposit;}
+    protected void addBalance(double deposit) {this.balance =+ deposit;}
 
-    public void sendBalance(double deposit){this.balance =- deposit;}
+    protected void sendBalance(double deposit){this.balance =- deposit;}
 }

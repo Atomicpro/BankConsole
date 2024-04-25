@@ -1,18 +1,23 @@
 package banklogic;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Transaction {
-
-    ArrayList<String> transactionList = new ArrayList<>();
+    protected LocalDate dateTransaction;
+    protected Account accountFromWhere;
+    protected Account accountWhereTo;
 
     public void sendMoney(Account accountFromWhere, Account accountWhereTo, double deposit){
-        if (accountFromWhere.getBalance() <= 0){
+        this.accountFromWhere = accountFromWhere;
+        this.accountWhereTo = accountWhereTo;
+        if (this.accountFromWhere.getBalance() <= 0){
             System.out.println("Ошибка перевода: недостаточно денежных средств");
         }
         else{
-            accountFromWhere.sendBalance(deposit);
-            accountWhereTo.addBalance(deposit);
+            this.accountFromWhere.sendBalance(deposit);
+            this.accountWhereTo.addBalance(deposit);
+            dateTransaction = LocalDate.now();
+
         }
     }
 }
